@@ -18,6 +18,6 @@
   "scripts": {
     "prepare": "husky install",
     "postinstall": "husky install",
-    "lint": "eslint '**/*.{ts,tsx}' --ext .ts, .tsx --fix"
+    "lint": "eslint '**/*.{ts,tsx}' --ext .ts,.tsx --fix"
   }
 }
