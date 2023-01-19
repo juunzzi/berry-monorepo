@@ -1,12 +1,9 @@
-import str from 'common';
+import generateRandomNumber from 'common';
 
-interface AppProps {
-  hi: string;
-}
+function App() {
+  const randomNumber = generateRandomNumber();
 
-function App(props: AppProps) {
-  console.log(str);
-  return <div className="App">dsafsdfasdf</div>;
+  return <div className="App">{randomNumber}</div>;
 }
 
 export default App;

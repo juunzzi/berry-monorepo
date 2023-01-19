@@ -1,2 +1,3 @@
-const str: string = '124214';
-export default str;
+const generateRandomNumber = () => Math.floor(Math.random() * 10);
+
+export default generateRandomNumber;
