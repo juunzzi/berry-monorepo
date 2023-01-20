@@ -10,7 +10,7 @@ COMMIT_EDITMSG=$1
 addBranchNumber() {
   NAME=$(git branch | grep '*' | sed 's/* //' | sed 's/^.*#//') 
   DESCRIPTION=$(git config branch."$NAME".description)
-  echo "[$NAME] $(cat $COMMIT_EDITMSG)" > $COMMIT_EDITMSG
+  echo "[#$NAME] $(cat $COMMIT_EDITMSG)" > $COMMIT_EDITMSG
   if [ -n "$DESCRIPTION" ] 
   then
      echo "" >> $COMMIT_EDITMSG
