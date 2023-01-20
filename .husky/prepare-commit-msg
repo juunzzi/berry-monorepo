@@ -1,6 +1,25 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
+#!/bin/sh
+# .git/hooks/prepare-commit-msg
+#
+# Automatically add branch name and branch description to every commit message except merge commit.
+# https://stackoverflow.com/a/18739064
+#
 
-echo 'hello juunzzi'
+COMMIT_EDITMSG=$1
 
-exit 0 # Exit 코드가 0이 아니면 커밋이 취소된다.
+addBranchNumber() {
+  NAME=$(git branch | grep '*' | sed 's/* //' | sed 's/^.*\///') 
+  DESCRIPTION=$(git config branch."$NAME".description)
+  echo "[$NAME] $(cat $COMMIT_EDITMSG)" > $COMMIT_EDITMSG
+  if [ -n "$DESCRIPTION" ] 
+  then
+     echo "" >> $COMMIT_EDITMSG
+     echo $DESCRIPTION >> $COMMIT_EDITMSG
+  fi 
+}
+
+MERGE=$(cat $COMMIT_EDITMSG|grep -i 'merge'|wc -l)
+
+if [ $MERGE -eq 0 ] ; then
+  addBranchNumber
+fi
