@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo 'hello juunzzi'
+
+exit 0 # Exit 코드가 0이 아니면 커밋이 취소된다.
