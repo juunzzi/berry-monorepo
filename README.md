@@ -1,17 +1,6 @@
 # berry-monorepo
 
-## monorepo를 통해 얻게되는 점
-
-## monorepo를 통해 잃게되는 점
-
-## monorepo를 구축하는 여러가지 방법
-
-## yarn berry를 통한 구축 방법
-
-yarn berry는 기본적으로 `node_mo
-
-```tsx
-
-```
-
-## husky, lint-staged 를 통한 lint 강제!
+## role of husky
+- a. git hook (pre-commit, prepare-commit-msg)
+- b. pre-commit : linting by Eslint (fix them)
+- c. prepare-commit-msg :  change commit title (e.g. [#issue_number] commit title
